@@ -10,7 +10,7 @@ export type AuthProviderProps = {
 
 const AuthProvider = ({ children, loader }: AuthProviderProps): JSX.Element => {
   return (
-    <ReactKeycloakProvider authClient={kcClient}>
+    <ReactKeycloakProvider authClient={kcClient} initOptions={{ checkLoginIframe: false }}>
       <AuthContext loader={loader}>{children}</AuthContext>
     </ReactKeycloakProvider>
   );
