@@ -14,6 +14,10 @@ const getKcConfig = (): import('keycloak-js').KeycloakConfig => {
 
 const kc = new Keycloak(getKcConfig());
 
+kc.init({
+  checkLoginIframe: false,
+});
+
 export default kc as Omit<Keycloak, 'hasResourceRole'> & {
   hasResourceRole: (role: TRoles) => boolean;
 };
